@@ -33,6 +33,12 @@ class action_plugin_makemedians extends DokuWiki_Action_Plugin {
      */
 
     public function handle_io_namespace_created(Doku_Event &$event, $param) {
+        // See https://www.dokuwiki.org/devel:event:io_namespace_created for more information about this event
+        $ns = $param[0];
+        $ns_type = $param[1];
+        if ($ns_type == 'pages') {
+            io_createNamespace($ns, 'media');
+        }
     }
 
 }
