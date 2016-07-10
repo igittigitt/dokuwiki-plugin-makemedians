@@ -1,0 +1,7 @@
+base   makemedians
+author Oliver Geisen
+email  oliver@denkdose.de
+date   2016-07-10
+name   makemedians plugin
+desc   Create media namespace directory immediatly on page creation
+url    https://github.com/igittigitt/makemedians
