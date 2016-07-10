@@ -3,7 +3,7 @@ makemedians Plugin for DokuWiki
 Create media namespace directory immediatly on page creation
 
 All documentation for this plugin can be found at
-https://github.com/igittigitt/makemedians
+https://www.dokuwiki.org/plugin:makemedians
 
 If you install this plugin manually, make sure it is installed in
 lib/plugins/makemedians/ - if the folder is called different it
