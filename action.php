@@ -19,7 +19,7 @@ class action_plugin_makemedians extends DokuWiki_Action_Plugin {
      */
     public function register(Doku_Event_Handler $controller) {
 
-       $controller->register_hook('IO_NAMESPACE_CREATED', 'AFTER', $this, 'handle_io_namespace_created');
+       $controller->register_hook('IO_WIKIPAGE_WRITE', 'AFTER', $this, 'handle_io_wikipage_write');
    
     }
 
@@ -31,11 +31,10 @@ class action_plugin_makemedians extends DokuWiki_Action_Plugin {
      *                           handler was registered]
      * @return void
      */
-
-    public function handle_io_namespace_created(Doku_Event &$event, $param) {
-        // See https://www.dokuwiki.org/devel:event:io_namespace_created for more information about this event
-        if ($event->data[1] == 'pages') {
-            $id = $event->data[0] . ':dummy';  // 'dummy' is needed, because io_createNamespace expects page-ID not namespace
+    public function handle_io_wikipage_write(Doku_Event &$event, $param) {
+        // See https://www.dokuwiki.org/devel:event:io_wikipage_write for more information about this event
+        if ($event->data[1]) {
+            $id = $event->data[1] . ':' . $event->data[2];
             io_createNamespace($id, 'media');
         }
     }
